@@ -23,18 +23,19 @@ To compile:
 
 2) Add a <i>credentials.h</i> file in <i>src/</i> with the asterisks user data:
 
-<sm>
-#ifndef CREDENTIALS_H
-#define CREDENTIALS_H
-#define SIP_DOMAIN	"ASTERISK_ADDR"
-#define SIP_USER	"USERNAME"
-#define SIP_PASSWD	"********"
-#endif
-</sm>
+<small>
+#ifndef CREDENTIALS_H<br/>
+#define CREDENTIALS_H<br/>
+#define SIP_DOMAIN	"ASTERISK_ADDR"<br/>
+#define SIP_USER	"USERNAME"<br/>
+#define SIP_PASSWD	"********"<br/>
+#endif<br/>
+</small>
 
 3) Add a <i>recipient.txt</i> in <i>bin/</i> with:
-<sm>
+<small>
 sip:TARGETUSER@ASTERISK_ADDR
-</sm>
+</small>
+
 
 Run: <i>make</i>
