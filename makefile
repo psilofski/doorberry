@@ -1,18 +1,37 @@
 # If your application is in a file named myapp.cpp or myapp.c
 # this is the line you will need to build the binary.
+
+.PHONY = all clean
+
 CC = gcc
-INC_DIR = StdCUtil
+
+LINKERFLAG = `pkg-config --cflags --libs libpjproject`
+
 SRC_DIR = src
-OBJ_DIR = Object
-CFLAGS = -Wall
-SRCS = $(SRC_DIR)/simple_pjsua.c
-OBJS = $(OBJ_DIR)/simple_pjsua.o
-DEPS = $(INC_DIR)/simple_pjsua.h
+BIN_DIR = bin
+WARNFLAGS = -Wall
 
-all: $(OBJS)
+#SRCS := $(SRC_DIR)/$(wildcard *.c)
+SRCS := $(SRC_DIR)/*.c
 
-%.o: %.c $(DEPS)
-	gcc -D SYSTEM_H="simple_pjsua.h" -D PJ_AUTOCONF=1 -o $@ $< `pkg-config $(CFLAGS) --libs libpjproject`
+#BINS := $(BIN_DIR)/$(SRCS:%.c=%)
+BINS := $(BIN_DIR)/pj_caller
+
+#DEPS := $(SRC_DIR)/$(wildcard *.h)
+DEPS := $(SRC_DIR)/*.h
+
+all: ${BINS}
+#all: bin/pj_caller
+
+#%: %.c $(DEPS) test.tmp
+bin/pj_caller: ${SRCS} ${DEPS} test.tmp
+	@echo "Checking.."
+	${CC} -D PJ_AUTOCONF=1 ${CFLAGS} -o $@ $< ${LINKERFLAG}
+
+#%.o: %.c
+##pj_caller.o: pj_caller.c
+#	@echo "Creating object.."
+#	${CC} -c $<
 
 clean:
-	rm -f *o all
+	rm -rvf *.o ${BINS}

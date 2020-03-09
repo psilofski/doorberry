@@ -42,8 +42,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#include SYSTEM_H
-#include CREDENTIALS_H
+#include "pj_caller.h"
+#include "credentials.h"
 
 /* Callback called by the library upon receiving incoming call */
 static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id,
@@ -241,3 +241,5 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+
