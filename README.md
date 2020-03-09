@@ -12,8 +12,8 @@ Specifically for the Wolfson Sound Card:
 Instructions for the driver (kernels 4.9++), here:
 https://www.horus.com/~hias/cirrus-driver.html
 
-In modprobe.d:
-blacklist rtl8192cu
-blacklist rtl8xxxu
-softdep arizona-spi pre: arizona-ldo1
+#In modprobe.d:
+#blacklist rtl8192cu
+#blacklist rtl8xxxu
+#softdep arizona-spi pre: arizona-ldo1
 ------------------------------------------------------------------
