@@ -12,7 +12,7 @@ Specifically for the Wolfson Sound Card:
 Instructions for the driver (kernels 4.9++), here:
 https://www.horus.com/~hias/cirrus-driver.html
 
-3 files in modprobe.d, that contain:
+Create 3 files in modprobe.d, that contain:
 1) blacklist rtl8192cu
 2) blacklist rtl8xxxu
 3) softdep arizona-spi pre: arizona-ldo1
@@ -31,6 +31,7 @@ To compile:
 #define SIP_PASSWD	"********"<br/>
 #endif<br/>
 </small>
+
 
 3) Add a <i>recipient.txt</i> in <i>bin/</i> with:
 <small>
