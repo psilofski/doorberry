@@ -1,0 +1,9 @@
+credentials.*
+recipient.txt
+*.log
+*.o
+*.out
+/bin
+/Object
+/backup*
+test*
