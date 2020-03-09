@@ -7,6 +7,3 @@
 #define THIS_FILE	"APP"
 
 #endif
-
-
-
