@@ -17,3 +17,24 @@ https://www.horus.com/~hias/cirrus-driver.html
 2) blacklist rtl8xxxu
 3) softdep arizona-spi pre: arizona-ldo1
 ------------------------------------------------------------------
+
+To compile:
+1) Create a <i>bin/</i> folder
+
+2) Add a <i>credentials.h</i> file in <i>src/</i> with the asterisks user data:
+
+<sm>
+#ifndef CREDENTIALS_H
+#define CREDENTIALS_H
+#define SIP_DOMAIN	"ASTERISK_ADDR"
+#define SIP_USER	"USERNAME"
+#define SIP_PASSWD	"********"
+#endif
+</sm>
+
+3) Add a <i>recipient.txt</i> in <i>bin/</i> with:
+<sm>
+sip:TARGETUSER@ASTERISK_ADDR
+</sm>
+
+Run: <i>make</i>
